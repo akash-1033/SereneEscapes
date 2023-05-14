@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Page</title>
+<script>
+        var nav = $('nav');
+    var line = $('<div />').addClass('line');
+    
+    line.appendTo(nav);
+    
+    var active = nav.find('.active');
+    var pos = 0;
+    var wid = 0;
+    
+    if(active.length) {
+      pos = active.position().left;
+      wid = active.width();
+      line.css({
+        left: pos,
+        width: wid
+      });
+    }
+    
+    nav.find('ul li a').click(function(e) {
+      e.preventDefault();
+      if(!$(this).parent().hasClass('active') && !nav.hasClass('animate')) {
+        
+        nav.addClass('animate');
+    
+        var _this = $(this);
+    
+        nav.find('ul li').removeClass('active');
+    
+        var position = _this.parent().position();
+        var width = _this.parent().width();
+    
+        if(position.left >= pos) {
+          line.animate({
+            width: ((position.left - pos) + width)
+          }, 300, function() {
+            line.animate({
+              width: width,
+              left: position.left
+            }, 150, function() {
+              nav.removeClass('animate');
+            });
+            _this.parent().addClass('active');
+          });
+        } else {
+          line.animate({
+            left: position.left,
+            width: ((pos - position.left) + wid)
+          }, 300, function() {
+            line.animate({
+              width: width
+            }, 150, function() {
+              nav.removeClass('animate');
+            });
+            _this.parent().addClass('active');
+          });
+        }
+    
+        pos = position.left;
+        wid = width;
+      }
+    });
+</script>
+
+    <style>
+nav {
+    text-align: center;
+    background-color: rgb(187, 186, 186);
+    color: black;
+  position: relative;
+  padding-bottom: 12px;
+}
+nav.line {
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  margin: 10px 0 0 0;
+  background: #d10d34;
+}
+nav ul {
+    
+  padding: 5px;
+  margin: 5px;
+  list-style: none;
+  display: flex;
+}
+nav ul li {
+  margin: 0 40px 0 0;
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+nav ul li:hover {
+    color: #d10d34;
+  opacity: 2;
+}
+nav ul li.active {
+  opacity: 2;
+}
+nav ul li:last-child {
+  margin-right: 0;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-size: 14px;
+}
+
+.categ{
+    background-color: rgba(127, 255, 212, 0.37);
+    text-align: center;
+    font-size: 2cm;
+}
+
+.box1{
+    font-size: 2cm;
+    color: #000000;
+    border: 2px solid black;
+    margin-top: 150px;
+    margin-left: 26px;
+    width: 96%;
+    height: 400px;
+    border-radius: 6px;
+}
+.box2{
+    font-size: 2cm;
+    color: #000000;
+    border: 2px solid black;
+    margin-left: 26px;
+    width: 96%;
+    margin-top: 50px;
+    height: 400px;
+    border-radius: 6px;
+}
+.box3{
+    font-size: 2cm;
+    color: #000000;
+    border: 2px solid black;
+    margin-left: 26px;
+    width: 96%;
+    margin-top: 50px;
+    height: 400px;
+    border-radius: 6px;
+}
+.box4{
+    font-size: 2cm;
+    color: #000000;
+    margin-top: 50px;
+    border: 2px solid black;
+    margin-left: 26px;
+    width: 96%;
+    height: 400px;
+    border-radius: 6px;
+}
+.box5{
+    font-size: 2cm;
+    color: #000000;
+    margin-top: 50px;
+    border: 2px solid black;
+    margin-left: 26px;
+    width: 96%;
+    height: 400px;
+    border-radius: 6px;
+}
+
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+#b1,#b2,#b4,#b3,#b5{
+    float: right;
+}
+
+#x1,#x2{
+    font-size: x-large;
+    color: black;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+    </nav>
+    <hr>
+    <div class="categ">Pilgrimage</div>
+
+    <div class="box1">
+        <a href="Mahabodhi-Temple.html" class="fill-div"><img id="b1" src="\Pil1.png" alt="Image" height="400px">Mahabodhi Temple
+        <p id="x1"><br><br>Location: Bodh Gaya,Bihar<br><br><br>Around 253 kilometres from Bhagalpur.</p>
+        </a>
+        
+    </div>
+    <div class="box2">
+        <a href="Thawe-Mandir.html" class="fill-div"><img id="b2" src="\Pil2.png" alt="Image" height="400px">Thawe Mandir
+        <p id="x2"><br><br>Location: Thawe,Gopalganj,Bihar.<br><br><br>Around 362 kilometres from Bhagalpur.</p> 
+        </a>
+        
+    </div>
+    <div class="box3">
+        <a href="Ugna.html" class="fill-div"><img id="b3" src="Ugna1.jpg" alt="Image" height="400px">Ugna Mahadev Mandir
+            <p id="x1"><br><br>Location: Bhawanipur,Madhubani,Bihar<br><br><br>Around 200 kilometres from Bhagalpur.</p></a>
+        
+    </div>
+    <div class="box4">
+        <a href="Ganpatganj.html" class="fill-div"><img id="b4" src="Ganpatganj1.jpg" alt="" height="400px">Gannpatganj Vishnu Mandir
+        <p id="x2"><br><br>Location: Gannpatganj,supaul,Bihar<br><br><br>Around 139 kilometres from Bhagalpur.</p>
+        </a>
+        
+    </div>
+    <div class="box5">
+        <a href="umga.html" class="fill-div"><img id="b5" src="Umga1.png" alt="" height="400px">Umga Sun Temple
+        <p id="x1"><br><br>Location: Aurangabaad,Bihar<br><br><br>Around 322 kilometres from Bhagalpur.</p>
+        </a>
+        
+    </div>
+
+</body>
+</html>

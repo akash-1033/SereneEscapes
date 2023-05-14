@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Document</title>
+    <script>
+        function getPics() {} //just for this demo
+        const imgs = document.querySelectorAll('.gallery');
+        const fullPage = document.querySelector('#fullpage');
+        
+        imgs.forEach(img => {
+          img.addEventListener('click', function() {
+            fullPage.style.backgroundImage = 'url(' + img.src + ')';
+            fullPage.style.display = 'block';
+          });
+        });
+
+        $('img[eng]').addClass('eng').click(function(){
+    var src = $(this).attr('src');
+    $('<div>').css({
+        background: 'RGBA(0,0,0,.5) url('+src+') no-repeat center',
+        backgroundSize: 'contain',
+        width:'100%', height:'100%',
+        position:'fixed',
+        zIndex:'10000',
+        top:'0', left:'0',
+        cursor: 'zoom-out'
+    }).click(function(){
+        $(this).remove();
+    }).appendTo('body');
+});
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
+<style>
+    *{
+        margin: 9px 9px;
+    }
+
+   /* Add a black background color to the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the "active" element to highlight the current page */
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 20px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+    
+  }
+}
+
+
+#fullpage {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+  background-position: center center;
+  background-color: black;
+}
+
+
+.headline{
+    height: 100px;
+    width: 100%;
+    font-size: 25px;
+}
+.image{
+    height: 500px;
+    width: 100%;
+    border: 2px white;
+    border-radius: 8px;
+    
+}
+.image ul {
+    align-content: baseline;
+    
+}
+
+.container{
+    display: flex;
+}
+
+
+nav {
+    background-color: rgb(187, 186, 186);
+    color: black;
+  position: relative;
+  padding-bottom: 12px;
+}
+nav.line {
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  margin: 10px 0 0 0;
+  background: #d10d34;
+}
+nav ul {
+    
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+nav ul li {
+  margin: 0 40px 0 0;
+  opacity: 4;
+  transition: all 0.4s ease;
+}
+nav ul li:hover {
+    color: #d10d34;
+  opacity: 1;
+}
+nav ul li.active {
+  opacity: 1;
+}
+nav ul li:last-child {
+  margin-right: 0;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-size: 14px;
+}
+
+
+
+.data{
+    overflow: auto;
+    height: 400px;
+    width: 800px;
+    font-size: large;
+    /* border: 2px solid black;
+    border-radius: 8px; */
+}
+/* .gallary{
+    height: 400px;
+    width: 660px;
+    border: 2px solid black;
+    border-radius: 8px;
+} */
+.photo1{
+    height: 400px;
+    width: 60%;
+    /* border: 2px solid black;
+    border-radius: 8px; */
+    float: right; 
+}
+/* .short{
+    position: absolute;
+    top: 1500px;
+    height: 400px;
+    width: 26%;
+    border: 2px solid black;
+    border-radius: 8px;
+
+} */
+.bg{
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+}
+
+.short1{
+    position: absolute;
+    /* top: 1500px; */
+    /* left: 420px; */
+    height: 500px;
+    width: 36%;
+    border: 2px solid black;
+    border-radius: 8px;
+
+}
+</style>
+<body>
+    <nav>
+        <ul>
+          <li class="active"><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="address">
+        <br>
+       <h3>Home/Destinations/Manjhar Kund</h3> 
+    </div>
+    <br>
+    <div class="headline">
+        <h1>Manjhar Kund</h1>
+    </div>
+    <div class="image">
+        <img src="Manjhar1.jpg" height="600px" width="97%" >
+    </div>
+    <br><br><br><br><br><br>
+    <div class="container"> 
+    <div class="data">
+        <p>In the district of Rohtas there are various stunning attractions for nature lovers that you can enjoy with your family and friends.To Enjoy the nature at it closest you must visit Manjhar Kund and Dhuan waterfall.
+                <br><br>
+            Situated on Kaimur Hill, the Manjhar Kund and Dhuan Kund waterfalls are some of the most beautiful and verdant natural attractions in the region. The Manjhar Kund is also the site of the traditional fair that is held on the first Sunday after the festival of Raksha Bandhan is celebrated here every year.The water of the Kaav river from the mountain passes through a zigzag path making a stream and collects in the waterfall of Manjhar Kund. Its water falls from a high mountain to the ground in the form of a waterfall.A lot of crowd is seen here during the month of Sawan, tourists from far and wide reach here to enjoy the plains, mountains and waterfalls.
+            <br><br>
+            Furthermore, the water of the Dhuan Kund Waterfall also helps to generate electricity in the region. In addition to holding religious significance, both the waterfalls are also great to enjoy fun-filled picnics and other activities. The waterfalls also offer scenic views of the surrounding hills and jungle canopy, and are perfect to spend a getaway at, away from the busy city streets of Rohtas. 
+            <br><br>
+            Historical Facts:
+            -Manjhar Kund is said to be the place where the people of the Sikh community used to carry the Guru Granth Sahib and stay for three days.
+            -The water of the kund is considered to be rich in natural minerals and helps to digest food.
+            
+            </p>
+    </div>
+    <div class="gallary">
+        <img eng src="Manjhar2.jpeg" alt="img" height="250px" width="450px">
+        <ul>
+            <li>Distance From Bhagalpur: 372 Kms</li>
+            <li>Via NH19</li>
+        </ul>
+        <div id="fullpage" onclick="this.style.display='none';"></div>
+    </div>
+        </div>
+        
+        <div class="photo1">
+            <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=500&amp;hl=en&amp;q=manjhar kund&amp;t=h&amp;z=11&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://capcuttemplate.org/">Capcuttemplate.org</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:500px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:500px;}.gmap_iframe {height:500px!important;}</style></div>
+        </div>
+
+       <div class="short1">
+        <img src="Manjhar3.jpg" alt="imgg" height="490px" width="97%">
+       </div>
+       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+       <br><br><br><br><br>
+</body>
+</html>
